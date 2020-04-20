@@ -819,16 +819,15 @@ def get_clean_factor_and_forward_returns(factor,
                       --------------------------------------------------------
                       | LULU  |-0.03| 0.05|-0.009|  2.7 |  G1 |      2
                       --------------------------------------------------------
-    """
 
-    if not is_returns:
-        forward_returns = compute_forward_returns(factor, prices, periods,
-                                                  filter_zscore,
-                                                  cumulative_returns)
-    else:
-        forward_returns = prices
-        forward_returns.index.levels[0].name = "date"
-        forward_returns.index.levels[1].name = "asset"
+    See Also
+    --------
+    utils.get_clean_factor
+        For use when forward returns are already available.
+    """
+    forward_returns = compute_forward_returns(factor, prices, periods,
+                                              filter_zscore,
+                                              cumulative_returns)
 
     factor_data = get_clean_factor(factor, forward_returns, groupby=groupby,
                                    groupby_labels=groupby_labels,
