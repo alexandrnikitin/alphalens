@@ -578,6 +578,7 @@ def quantile_turnover(quantile_factor, quantile, period=1):
         Quantile on which to perform turnover analysis.
     period: int, optional
         Number of days over which to calculate the turnover.
+
     Returns
     -------
     quant_turnover : pd.Series
@@ -667,7 +668,8 @@ def common_start_returns(factor,
     after:
         How many returns to load after factor date
     cumulative: bool, optional
-        Return cumulative returns
+        Whether or not the given returns are cumulative. If False the given
+        returns are assumed to be daily.
     mean_by_date: bool, optional
         If True, compute mean returns for each date and return that
         instead of a return series for each asset
@@ -683,7 +685,6 @@ def common_start_returns(factor,
         Dataframe containing returns series for each factor aligned to the same
         index: -before to after
     """
-
     if not cumulative:
         returns = returns.apply(cumulative_returns, axis=0)
 

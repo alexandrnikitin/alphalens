@@ -674,8 +674,7 @@ def get_clean_factor_and_forward_returns(factor,
                                          groupby_labels=None,
                                          max_loss=0.35,
                                          zero_aware=False,
-                                         cumulative_returns=True,
-                                         is_returns=False):
+                                         cumulative_returns=True):
     """
     Formats the factor data, pricing data, and group mappings into a DataFrame
     that contains aligned MultiIndex indices of timestamp and asset. The
