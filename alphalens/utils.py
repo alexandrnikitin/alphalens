@@ -824,9 +824,13 @@ def get_clean_factor_and_forward_returns(factor,
     utils.get_clean_factor
         For use when forward returns are already available.
     """
-    forward_returns = compute_forward_returns(factor, prices, periods,
-                                              filter_zscore,
-                                              cumulative_returns)
+    forward_returns = compute_forward_returns(
+        factor,
+        prices,
+        periods,
+        filter_zscore,
+        cumulative_returns,
+    )
 
     factor_data = get_clean_factor(factor, forward_returns, groupby=groupby,
                                    groupby_labels=groupby_labels,

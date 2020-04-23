@@ -660,7 +660,7 @@ def common_start_returns(factor,
         irrelevant
     returns : pd.DataFrame
         A wide form Pandas DataFrame indexed by date with assets in the
-        columns. Pricing data should span the factor analysis time period
+        columns. Returns data should span the factor analysis time period
         plus/minus an additional buffer window corresponding to after/before
         period parameters.
     before:
@@ -751,7 +751,7 @@ def average_cumulative_return_by_quantile(factor_data,
         - See full explanation in utils.get_clean_factor_and_forward_returns
     returns : pd.DataFrame
         A wide form Pandas DataFrame indexed by date with assets in the
-        columns. Pricing data should span the factor analysis time period
+        columns. Returns data should span the factor analysis time period
         plus/minus an additional buffer window corresponding to periods_after/
         periods_before parameters.
     periods_before : int, optional

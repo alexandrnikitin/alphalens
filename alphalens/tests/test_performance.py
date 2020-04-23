@@ -839,29 +839,8 @@ class PerformanceTestCase(TestCase):
         dr.name = 'date'
         tickers = ['A', 'B', 'C', 'D']
         r1, r2, r3, r4 = (1.20, 1.40, 0.90, 0.80)
-        returns = DataFrame(
-            data=[
-                [r1**1, r2**1, r3**1, r4**1],
-                [r1**2, r2**2, r3**2, r4**2],
-                [r1**3, r2**3, r3**3, r4**3],
-                [r1**4, r2**4, r3**4, r4**4],
-                [r1**5, r2**5, r3**5, r4**5],
-                [r1**6, r2**6, r3**6, r4**6],
-                [r1**7, r2**7, r3**7, r4**7],
-                [r1**8, r2**8, r3**8, r4**8],
-                [r1**9, r2**9, r3**9, r4**9],
-                [r1**10, r2**10, r3**10, r4**10],
-                [r1**11, r2**11, r3**11, r4**11],
-                [r1**12, r2**12, r3**12, r4**12],
-                [r1**13, r2**13, r3**13, r4**13],
-                [r1**14, r2**14, r3**14, r4**14],
-                [r1**15, r2**15, r3**15, r4**15],
-                [r1**16, r2**16, r3**16, r4**16],
-                [r1**17, r2**17, r3**17, r4**17],
-            ],
-            index=dr,
-            columns=tickers,
-        )
+        data = [[r1**i, r2**i, r3**i, r4**i] for i in range(1, 18)]
+        returns = DataFrame(data=data, index=dr, columns=tickers)
         dr2 = date_range(start='2015-1-21', end='2015-1-29')
         factor = DataFrame(index=dr2, columns=tickers,
                            data=[[3, 4, 2, 1],
