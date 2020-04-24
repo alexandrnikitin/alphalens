@@ -429,12 +429,14 @@ def create_turnover_tear_sheet(factor_data, turnover_periods=None):
     """
 
     if turnover_periods is None:
-        turnover_periods = utils.get_forward_returns_columns(
+        input_periods = utils.get_forward_returns_columns(
             factor_data.columns, require_exact_day_multiple=True,
         ).get_values()
-    turnover_periods = list(
-        map(lambda x: pd.Timedelta(x).days, turnover_periods)
-    )
+        turnover_periods = utils.timedelta_strings_to_integers(input_periods)
+    else:
+        turnover_periods = utils.timedelta_strings_to_integers(
+            turnover_periods,
+        )
 
     quantile_factor = factor_data["factor_quantile"]
 

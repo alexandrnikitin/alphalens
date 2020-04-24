@@ -951,6 +951,23 @@ def timedelta_to_string(timedelta):
     return format
 
 
+def timedelta_strings_to_integers(sequence):
+    """
+    Converts pandas string representations of timedeltas into integers of days.
+
+    Parameters
+    ----------
+    sequence : iterable
+        List or array of timedelta string representations, e.g. ['1D', '5D'].
+
+    Returns
+    -------
+    sequence : list
+        Integer days corresponding to the input sequence, e.g. [1, 5].
+    """
+    return list(map(lambda x: pd.Timedelta(x).days, sequence))
+
+
 def add_custom_calendar_timedelta(input, timedelta, freq):
     """
     Add timedelta to 'input' taking into consideration custom frequency, which
