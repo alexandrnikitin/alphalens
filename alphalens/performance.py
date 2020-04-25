@@ -714,9 +714,6 @@ def common_start_returns(factor,
         series.index = range(starting_index - day_zero_index,
                              ending_index - day_zero_index)
 
-        if cumulative:
-            series = (series / series.loc[0, :]) - 1
-
         if demean_by is not None:
             mean = series.loc[:, demean_equities].mean(axis=1)
             series = series.loc[:, equities]
